@@ -39,9 +39,18 @@ CREATE TABLE users
 - migrate -path ./schema -database 'postgres://postgres:fuaddauf@localhost:5436/postgres?sslmode=disable' down
 ********************************* About DB Start *************************************
 
-********************************* About DB Davami *************************************
+********************************* DB Connect from Project *************************************
 <!-- sql-le ishlemek ucun asagidakini yukledim -->
 - go get -u github.com/jmoiron/sqlx
 
 <!-- passwordu config file-da saxlamaq duzgun deyil .env-le islemek ucun asagidakini yukledim -->
 - go get github.com/joho/godotenv
+********************************* DB Connect from Project Finish *************************************
+
+********************************* For Logging *************************************
+- go get -u github.com/sirupsen/logrus
+******* END *******
+
+***************************** Registration Notes *********************************
+
+******* END *******
