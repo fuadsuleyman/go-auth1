@@ -54,3 +54,8 @@ CREATE TABLE users
 ***************************** Registration Notes *********************************
 
 ******* END *******
+
+***************************** login Notes *********************************
+- go get -u github.com/dgrijalva/jwt-go
+
+******* END *******
