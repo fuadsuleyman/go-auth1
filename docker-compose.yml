@@ -2,7 +2,8 @@ version: '3.6'
 
 services:
   register1:
-    image: auth-app
+    # image: auth-app
+    build: ./
     ports:
       - 8000:8000
     depends_on:
