@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  register1:
+    image: auth-app
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+    environment:
+      - DB_PASSWORD=fuaddauf
+
+  db:
+    restart: always
+    image: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=fuaddauf
+    ports:
+      - 5436:5432
+
+volumes: 
+  postgres_data:

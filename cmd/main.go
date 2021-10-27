@@ -53,13 +53,13 @@ func main() {
 			logrus.Fatalf("error occured while running http server: %s", err.Error())
 		}
 	}()
-	logrus.Print("TodoApp Started")
+	logrus.Print("Register1 Started")
 
 	quit := make(chan os.Signal, 1)
 	signal.Notify(quit, syscall.SIGTERM, syscall.SIGINT)
 	<- quit
 
-	logrus.Print("TodoApp Shutting Down")
+	logrus.Print("Register1 Shutting Down")
 
 	if err := srv.Shutdown(context.Background()); err != nil {
 		logrus.Errorf("error occured on server shutting down: %s", err.Error())
