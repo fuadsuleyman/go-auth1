@@ -8,6 +8,7 @@ import (
 type Authorization interface {
 	CreateUser(user auth.User) (int, error)
 	GenerateToken(username, password string) (string, error)
+	ParseToken(token string) (string, error)
 }
 
 type Service struct {

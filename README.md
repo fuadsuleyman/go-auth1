@@ -59,3 +59,5 @@ CREATE TABLE users
 - go get -u github.com/dgrijalva/jwt-go
 
 ******* END *******
+
+Can not find edende export GO111MODULE=on 
