@@ -61,3 +61,13 @@ CREATE TABLE users
 ******* END *******
 
 Can not find edende export GO111MODULE=on 
+
+### Docker run migrate
+/home/fuad/golang/rest-api/register1/schema
+
+### it is not work
+docker run -v /home/fuad/golang/rest-api/register1/schema:/migrations --network host migrate/migrate
+    -path=/migrations/ -database 'postgres://postgres:fuaddauf@localhost:5436/postgres?sslmode=disable' up
+
+docker run -v ./schema:/migrations --network host migrate/migrate
+    -path=/migrations/ -database 'postgres://postgres:fuaddauf@localhost:5432/postgres?sslmode=disable' up
