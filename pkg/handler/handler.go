@@ -2,6 +2,7 @@ package handler
 
 import (
 	"fmt"
+	"time"
 
 	"github.com/fuadsuleyman/go-auth1/pkg/service"
 	"github.com/gin-contrib/cors"
@@ -22,16 +23,28 @@ func (h *Handler) InitRoutes() *gin.Engine{
 	// router := gin.New()
 	router := gin.Default()
 
+	router.Use(cors.New(cors.Config{
+		AllowOrigins:     []string{"*"},
+		AllowMethods:     []string{"POST, OPTIONS, GET, PUT"},
+		AllowHeaders:     []string{"*"},
+		ExposeHeaders:    []string{"Content-Length"},
+		AllowCredentials: true,
+		AllowOriginFunc: func(origin string) bool {
+		  return origin == "https://github.com"
+		},
+		MaxAge: 12 * time.Hour,
+	  }))
 
-	config := cors.DefaultConfig()
-	config.AllowOrigins = []string{"*"}
-	config.AllowHeaders = []string{"*"}
+
+	// config := cors.DefaultConfig()
+	// config.AllowOrigins = []string{"*"}
+	// config.AllowHeaders = []string{"*"}
 	// config.AddAllowHeaders("Authorization", "language")
-	config.AllowCredentials = true
+	// config.AllowCredentials = true
 	fmt.Println("*******************Fuad")
 
 
-	router.Use(cors.New(config))
+	// router.Use(cors.New(config))
 
 
 	// router.Use(CORSMiddleware())
