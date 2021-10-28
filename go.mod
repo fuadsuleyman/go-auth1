@@ -38,6 +38,7 @@ require (
 
 require (
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible // indirect
+	github.com/gin-contrib/cors v1.3.1
 	github.com/joho/godotenv v1.4.0 // indirect
 	github.com/sirupsen/logrus v1.8.1 // indirect
 )
