@@ -1,9 +1,11 @@
 package handler
 
 import (
+	"fmt"
+
 	"github.com/fuadsuleyman/go-auth1/pkg/service"
-	"github.com/gin-gonic/gin"
 	"github.com/gin-contrib/cors"
+	"github.com/gin-gonic/gin"
 )
 type Handler struct{
 	services *service.Service 
@@ -26,6 +28,7 @@ func (h *Handler) InitRoutes() *gin.Engine{
 	config.AllowHeaders = []string{"*"}
 	// config.AddAllowHeaders("Authorization", "language")
 	config.AllowCredentials = true
+	fmt.Println("*******************Fuad")
 
 
 	router.Use(cors.New(config))
