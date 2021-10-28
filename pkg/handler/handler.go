@@ -3,6 +3,7 @@ package handler
 import (
 	"github.com/fuadsuleyman/go-auth1/pkg/service"
 	"github.com/gin-gonic/gin"
+	"github.com/gin-contrib/cors"
 )
 type Handler struct{
 	services *service.Service 
@@ -15,9 +16,21 @@ func NewHandler(services *service.Service) *Handler{
 
 func (h *Handler) InitRoutes() *gin.Engine{
 	gin.SetMode(gin.ReleaseMode)
+	
 	router := gin.New()
 
-	router.Use(CORSMiddleware())
+
+	config := cors.DefaultConfig()
+	config.AllowOrigins = []string{"*"}
+	config.AllowHeaders = []string{"*"}
+	config.AddAllowHeaders("Authorization", "language")
+	config.AllowCredentials = true
+
+
+	router.Use(cors.New(config))
+
+
+	// router.Use(CORSMiddleware())
 
 	// router.Use(cors.Default())
 
