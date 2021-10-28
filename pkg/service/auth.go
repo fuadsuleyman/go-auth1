@@ -20,6 +20,7 @@ type tokenClaims struct {
 	UserId int `json:"user_id"`
 	UserType int `json:"user_usertype"`
 	UserName string `json:"user_username"`
+	IsFull bool `json:"user_isfull"`
 }
 
 
@@ -43,6 +44,8 @@ func (s *AuthService) GenerateToken(username, password string) (string, error) {
 		return "", err
 	}
 	fmt.Println("in signin user:", user)
+	fmt.Println("in signin user.UserType:", user.UserType)
+	fmt.Println("in signin user.isFull:", user.IsFull)
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, &tokenClaims{
 		jwt.StandardClaims{
 			ExpiresAt: time.Now().Add(tokenTTL).Unix(),
@@ -51,6 +54,7 @@ func (s *AuthService) GenerateToken(username, password string) (string, error) {
 		user.Id,
 		user.UserType,
 		user.Username,
+		user.IsFull,
 	})
 
 	return token.SignedString([]byte(signingKey))
