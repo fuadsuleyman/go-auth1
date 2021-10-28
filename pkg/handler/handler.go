@@ -17,13 +17,14 @@ func NewHandler(services *service.Service) *Handler{
 func (h *Handler) InitRoutes() *gin.Engine{
 	gin.SetMode(gin.ReleaseMode)
 	
-	router := gin.New()
+	// router := gin.New()
+	router := gin.Default()
 
 
 	config := cors.DefaultConfig()
 	config.AllowOrigins = []string{"*"}
 	config.AllowHeaders = []string{"*"}
-	config.AddAllowHeaders("Authorization", "language")
+	// config.AddAllowHeaders("Authorization", "language")
 	config.AllowCredentials = true
 
 
